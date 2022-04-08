@@ -14,3 +14,33 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
+
+terraform {
+  required_providers {
+    github = {
+      source = "integrations/github"
+    }
+  }
+}
+
+provider "github" {
+  token = "my-github-token" # or use `export GITHUB_TOKEN="my-github-token"`
+}
+
+module "repo_mgmt_user" {
+  source = "../.."
+
+  # change defaults (see: variables.tf)
+  github_repository_default_visibility = "public"
+
+  # repository
+  github_repository = {
+    "my-private-repository" = {
+      description = "My private repository"
+      visibility  = "private"
+    },
+    "my-public-repository" = {
+      description = "My public repository"
+    },
+  }
+}
