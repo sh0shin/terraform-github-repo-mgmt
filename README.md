@@ -1,4 +1,4 @@
-# Terraform GitHub module
+# Terraform GitHub repository management
 
 Terraform module which manages your GitHub user or organization repositories.
 
