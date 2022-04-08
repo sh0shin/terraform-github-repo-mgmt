@@ -1,3 +1,7 @@
+# Terraform GitHub module
+
+Terraform module which manages your GitHub user or organization repositories.
+
 [//]: # ( BEGIN_TF_DOCS )
 
 ## Requirements
