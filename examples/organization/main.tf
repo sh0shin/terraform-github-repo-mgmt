@@ -14,3 +14,57 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
+
+terraform {
+  required_providers {
+    github = {
+      source = "integrations/github"
+    }
+  }
+}
+
+provider "github" {
+  owner = "my-github-organization" # or use `export GITHUB_OWNER="my-github-organization"`
+  token = "my-github-token"        # or use `export GITHUB_TOKEN="my-github-token"`
+}
+
+module "repo_mgmt_organization" {
+  source = "../.."
+
+  # change defaults (see: variables.tf)
+  github_team_repository_default_permission = "push"
+
+  # membership
+  github_membership = {
+    "my-github-user"    = { role = "admin" },
+    "other-github-user" = {}, # use default role (member)
+  }
+
+  # team
+  github_team = {
+    "my-github-team" = {
+      description = "My GitHub team (;"
+      members = {
+        "my-github-user"    = { role = "maintainer" },
+        "other-github-user" = {}, # use default role (member)
+      }
+    }
+  }
+
+  # repository
+  github_repository = {
+    "my-private-repository" = {
+      description = "My private repository"
+    },
+    "my-public-repository" = {
+      description = "My public repository"
+      visibility  = "public"
+    },
+  }
+
+  # team repository
+  github_team_repository = {
+    "my-github-team@my-private-repository" = { permission = "maintain" },
+    "my-github-team@my-public-repository"  = {}, # use default permission (push)
+  }
+}
