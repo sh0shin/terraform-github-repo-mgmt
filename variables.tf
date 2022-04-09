@@ -44,12 +44,24 @@ variable "github_membership_default_role" {
   description = "Default role of the user within the organization."
   type        = string
   default     = "member"
+
+  validation {
+    condition     = contains(["admin", "member"], var.github_membership_default_role)
+    error_message = "The role must be one of member or admin."
+  }
 }
 
 variable "github_membership" {
   description = "Add/remove users from your GitHub organization. See: [organization example](examples/organization/main.tf)"
   type        = any
   default     = {}
+
+  validation {
+    condition = alltrue([
+      for o in var.github_membership : contains(["admin", "member"], try(o.role, "member"))
+    ])
+    error_message = "The role must be one of member or admin."
+  }
 }
 
 # team
@@ -63,6 +75,11 @@ variable "github_team_default_privacy" {
   description = "Default level of privacy for the team. Must be one of secret or closed."
   type        = string
   default     = "secret"
+
+  validation {
+    condition     = contains(["secret", "closed"], var.github_team_default_privacy)
+    error_message = "Level of privacy must be one of secret or closed."
+  }
 }
 
 variable "github_team_default_create_default_maintainer" {
@@ -75,6 +92,11 @@ variable "github_team_members_default_role" {
   description = "Default role of the user within the team. Must be one of member or maintainer."
   type        = string
   default     = "member"
+
+  validation {
+    condition     = contains(["member", "maintainer"], var.github_team_members_default_role)
+    error_message = "The role must be one of member or maintainer."
+  }
 }
 
 variable "github_team" {
@@ -88,6 +110,11 @@ variable "github_repository_default_visibility" {
   description = "Default visibility."
   type        = string
   default     = "private"
+
+  validation {
+    condition     = contains(["private", "public"], var.github_repository_default_visibility)
+    error_message = "Repository visibility must be on of private or public."
+  }
 }
 
 variable "github_repository_default_is_template" {
@@ -220,6 +247,13 @@ variable "github_repository_default_template" {
 variable "github_repository" {
   description = "Repository to create and manage within your GitHub organization or personal account. See: [examples](examples/)"
   type        = any
+
+  validation {
+    condition = alltrue([
+      for o in var.github_repository : contains(["private", "public"], try(o.visibility, "private"))
+    ])
+    error_message = "Repository visibility must be one of private or public."
+  }
 }
 
 # team repository
@@ -227,10 +261,22 @@ variable "github_team_repository_default_permission" {
   description = "Default permissions of team members regarding the repository. Must be one of pull, triage, push, maintain, or admin."
   type        = string
   default     = "pull"
+
+  validation {
+    condition     = contains(["pull", "triage", "push", "maintain", "admin"], var.github_team_repository_default_permission)
+    error_message = "Repository permission must be one pull, triage, push, maintain, or admin."
+  }
 }
 
 variable "github_team_repository" {
   description = "Manage relationships between teams and repositories in your GitHub organization. See [organization example](examples/organization/main.tf)"
   type        = any
   default     = {}
+
+  validation {
+    condition = alltrue([
+      for o in var.github_team_repository : contains(["pull", "triage", "push", "maintain", "admin"], try(o.permission, "pull"))
+    ])
+    error_message = "Repository permission must be one pull, triage, push, maintain, or admin."
+  }
 }
