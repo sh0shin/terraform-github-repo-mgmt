@@ -19,13 +19,15 @@
 variable "github_owner" {
   description = "The GitHub organization or user account to manage, when not provided and a token is available, the user account owning the token will be used. Can also be sourced from `GITHUB_OWNER` environment variable."
   type        = string
-  default     = null
+  default     = ""
+  nullable    = false
 }
 
 variable "github_token" {
   description = "A GitHub token, can also be sourced from the `GITHUB_TOKEN` environment variable."
   type        = string
-  default     = null
+  default     = ""
+  nullable    = false
   sensitive   = true
 }
 
@@ -69,7 +71,8 @@ variable "github_membership" {
 variable "github_team_default_description" {
   description = "Default description of the team."
   type        = string
-  default     = null
+  default     = ""
+  nullable    = false
 }
 
 variable "github_team_default_privacy" {
@@ -130,19 +133,22 @@ variable "github_repository_default_is_template" {
 variable "github_repository_default_description" {
   description = "Default description of the repository."
   type        = string
-  default     = null
+  default     = ""
+  nullable    = false
 }
 
 variable "github_repository_default_homepage_url" {
   description = "Default URL of a page describing the project."
   type        = string
-  default     = null
+  default     = ""
+  nullable    = false
 }
 
 variable "github_repository_default_topics" {
   description = "Default list of topics of the repository."
   type        = list(string)
   default     = []
+  nullable    = false
 }
 
 variable "github_repository_default_has_issue" {
@@ -196,13 +202,15 @@ variable "github_repository_default_delete_branch_on_merge" {
 variable "github_repository_default_gitignore_template" {
   description = "Default name of the gitignore template without the extension. For example, 'Haskell'."
   type        = string
-  default     = null
+  default     = ""
+  nullable    = false
 }
 
 variable "github_repository_default_license_template" {
   description = "Default name of the license template without the extension. For example, 'mit' or 'mpl-2.0'."
   type        = string
-  default     = null
+  default     = ""
+  nullable    = false
 }
 
 variable "github_repository_default_auto_init" {
@@ -226,7 +234,8 @@ variable "github_repository_default_vulnerability_alerts" {
 variable "github_repository_default_pages_cname" {
   description = "Default GitHub Pages CNAME."
   type        = string
-  default     = null
+  default     = ""
+  nullable    = false
 }
 
 variable "github_repository_default_pages" {
