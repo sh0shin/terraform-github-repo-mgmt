@@ -1,0 +1,4 @@
+.editorconfig       export-ignore
+.git*               export-ignore
+.markdownlint.yaml  export-ignore
+.terraform-docs.yml export-ignore
