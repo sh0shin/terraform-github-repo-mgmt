@@ -15,11 +15,6 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-provider "github" {
-  owner = var.github_owner
-  token = var.github_token
-}
-
 resource "github_user_ssh_key" "this" {
   for_each = var.github_user_ssh_key
   title    = each.key
