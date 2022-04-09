@@ -69,7 +69,7 @@ Description: The GitHub organization or user account to manage, when not provide
 
 Type: `string`
 
-Default: `null`
+Default: `""`
 
 ### <a name="input_github_repository_default_allow_auto_merge"></a> [github_repository_default_allow_auto_merge](#input_github_repository_default_allow_auto_merge)
 
@@ -133,7 +133,7 @@ Description: Default description of the repository.
 
 Type: `string`
 
-Default: `null`
+Default: `""`
 
 ### <a name="input_github_repository_default_gitignore_template"></a> [github_repository_default_gitignore_template](#input_github_repository_default_gitignore_template)
 
@@ -141,7 +141,7 @@ Description: Default name of the gitignore template without the extension. For e
 
 Type: `string`
 
-Default: `null`
+Default: `""`
 
 ### <a name="input_github_repository_default_has_issue"></a> [github_repository_default_has_issue](#input_github_repository_default_has_issue)
 
@@ -173,7 +173,7 @@ Description: Default URL of a page describing the project.
 
 Type: `string`
 
-Default: `null`
+Default: `""`
 
 ### <a name="input_github_repository_default_is_template"></a> [github_repository_default_is_template](#input_github_repository_default_is_template)
 
@@ -189,7 +189,7 @@ Description: Default name of the license template without the extension. For exa
 
 Type: `string`
 
-Default: `null`
+Default: `""`
 
 ### <a name="input_github_repository_default_pages"></a> [github_repository_default_pages](#input_github_repository_default_pages)
 
@@ -213,7 +213,7 @@ Description: Default GitHub Pages CNAME.
 
 Type: `string`
 
-Default: `null`
+Default: `""`
 
 ### <a name="input_github_repository_default_template"></a> [github_repository_default_template](#input_github_repository_default_template)
 
@@ -276,7 +276,7 @@ Description: Default description of the team.
 
 Type: `string`
 
-Default: `null`
+Default: `""`
 
 ### <a name="input_github_team_default_privacy"></a> [github_team_default_privacy](#input_github_team_default_privacy)
 
@@ -316,7 +316,7 @@ Description: A GitHub token, can also be sourced from the `GITHUB_TOKEN` environ
 
 Type: `string`
 
-Default: `null`
+Default: `""`
 
 ### <a name="input_github_user_ssh_key"></a> [github_user_ssh_key](#input_github_user_ssh_key)
 
