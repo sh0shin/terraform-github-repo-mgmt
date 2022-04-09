@@ -63,14 +63,6 @@ Type: `string`
 
 Default: `"member"`
 
-### <a name="input_github_owner"></a> [github_owner](#input_github_owner)
-
-Description: The GitHub organization or user account to manage, when not provided and a token is available, the user account owning the token will be used. Can also be sourced from `GITHUB_OWNER` environment variable.
-
-Type: `string`
-
-Default: `""`
-
 ### <a name="input_github_repository_default_allow_auto_merge"></a> [github_repository_default_allow_auto_merge](#input_github_repository_default_allow_auto_merge)
 
 Description: Default enable/disable auto-merging pull requests on the repository.
@@ -309,14 +301,6 @@ Description: Default permissions of team members regarding the repository. Must 
 Type: `string`
 
 Default: `"pull"`
-
-### <a name="input_github_token"></a> [github_token](#input_github_token)
-
-Description: A GitHub token, can also be sourced from the `GITHUB_TOKEN` environment variable.
-
-Type: `string`
-
-Default: `""`
 
 ### <a name="input_github_user_ssh_key"></a> [github_user_ssh_key](#input_github_user_ssh_key)
 
