@@ -8,7 +8,7 @@ Terraform module which manages your GitHub user or organization repositories.
 
 The following requirements are needed by this module:
 
-- <a name="requirement_terraform"></a> [terraform](#requirement_terraform) (~> 1.0, < 1.2)
+- <a name="requirement_terraform"></a> [terraform](#requirement_terraform) (~> 1.1, < 1.2)
 
 - <a name="requirement_github"></a> [github](#requirement_github) (~> 4.0)
 
