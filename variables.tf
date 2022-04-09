@@ -44,6 +44,7 @@ variable "github_membership_default_role" {
   description = "Default role of the user within the organization."
   type        = string
   default     = "member"
+  nullable    = false
 
   validation {
     condition     = contains(["admin", "member"], var.github_membership_default_role)
@@ -75,6 +76,7 @@ variable "github_team_default_privacy" {
   description = "Default level of privacy for the team. Must be one of secret or closed."
   type        = string
   default     = "secret"
+  nullable    = false
 
   validation {
     condition     = contains(["secret", "closed"], var.github_team_default_privacy)
@@ -92,6 +94,7 @@ variable "github_team_members_default_role" {
   description = "Default role of the user within the team. Must be one of member or maintainer."
   type        = string
   default     = "member"
+  nullable    = false
 
   validation {
     condition     = contains(["member", "maintainer"], var.github_team_members_default_role)
@@ -110,6 +113,7 @@ variable "github_repository_default_visibility" {
   description = "Default visibility."
   type        = string
   default     = "private"
+  nullable    = false
 
   validation {
     condition     = contains(["private", "public"], var.github_repository_default_visibility)
@@ -261,6 +265,7 @@ variable "github_team_repository_default_permission" {
   description = "Default permissions of team members regarding the repository. Must be one of pull, triage, push, maintain, or admin."
   type        = string
   default     = "pull"
+  nullable    = false
 
   validation {
     condition     = contains(["pull", "triage", "push", "maintain", "admin"], var.github_team_repository_default_permission)
