@@ -93,6 +93,15 @@ resource "github_repository" "this" {
       owner      = template.value.owner
     }
   }
+
+  lifecycle {
+    ignore_changes = [
+      auto_init,
+      gitignore_template,
+      license_template,
+      template,
+    ]
+  }
 }
 
 resource "github_team_repository" "this" {
