@@ -26,6 +26,7 @@ variable "github_token" {
   description = "A GitHub token, can also be sourced from the `GITHUB_TOKEN` environment variable."
   type        = string
   default     = null
+  sensitive   = true
 }
 
 # user ssh key
