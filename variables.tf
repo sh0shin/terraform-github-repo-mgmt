@@ -15,6 +15,19 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
+# provider settings
+variable "github_owner" {
+  description = "The GitHub organization or user account to manage, when not provided and a token is available, the user account owning the token will be used. Can also be sourced from `GITHUB_OWNER` environment variable."
+  type        = string
+  default     = null
+}
+
+variable "github_token" {
+  description = "A GitHub token, can also be sourced from the `GITHUB_TOKEN` environment variable."
+  type        = string
+  default     = null
+}
+
 # user ssh key
 variable "github_user_ssh_key" {
   description = "Add/remove SSH keys from your user account."
