@@ -8,15 +8,15 @@ Terraform module which manages your GitHub user or organization repositories.
 
 The following requirements are needed by this module:
 
-- <a name="requirement_terraform"></a> [terraform](#requirement_terraform) (>= 1.0, < 1.2)
+- <a name="requirement_terraform"></a> [terraform](#requirement_terraform) (~> 1.0, < 1.2)
 
-- <a name="requirement_github"></a> [github](#requirement_github) (>= 4.22, < 5.0)
+- <a name="requirement_github"></a> [github](#requirement_github) (~> 4.0)
 
 ## Providers
 
 The following providers are used by this module:
 
-- <a name="provider_github"></a> [github](#provider_github) (>= 4.22, < 5.0)
+- <a name="provider_github"></a> [github](#provider_github) (~> 4.0)
 
 ## Modules
 
@@ -62,6 +62,14 @@ Description: Default role of the user within the organization.
 Type: `string`
 
 Default: `"member"`
+
+### <a name="input_github_owner"></a> [github_owner](#input_github_owner)
+
+Description: The GitHub organization or user account to manage, when not provided and a token is available, the user account owning the token will be used. Can also be sourced from `GITHUB_OWNER` environment variable.
+
+Type: `string`
+
+Default: `null`
 
 ### <a name="input_github_repository_default_allow_auto_merge"></a> [github_repository_default_allow_auto_merge](#input_github_repository_default_allow_auto_merge)
 
@@ -301,6 +309,14 @@ Description: Default permissions of team members regarding the repository. Must 
 Type: `string`
 
 Default: `"pull"`
+
+### <a name="input_github_token"></a> [github_token](#input_github_token)
+
+Description: A GitHub token, can also be sourced from the `GITHUB_TOKEN` environment variable.
+
+Type: `string`
+
+Default: `null`
 
 ### <a name="input_github_user_ssh_key"></a> [github_user_ssh_key](#input_github_user_ssh_key)
 
