@@ -15,20 +15,12 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-terraform {
-  required_providers {
-    github = {
-      source = "integrations/github"
-    }
-  }
-}
-
-provider "github" {
-  token = "my-github-token" # or use `export GITHUB_TOKEN="my-github-token"`
-}
-
 module "repo_mgmt_user" {
   source = "../.."
+
+  # provider settings
+  github_owner = "my-github-user"  # or use `GITHUB_OWNER` environment variable.
+  github_token = "my-github-token" # or use `GITHUB_TOKEN` environment variable.
 
   # change defaults (see: variables.tf)
   github_repository_default_visibility = "public"

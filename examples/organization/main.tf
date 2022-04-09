@@ -15,21 +15,12 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-terraform {
-  required_providers {
-    github = {
-      source = "integrations/github"
-    }
-  }
-}
-
-provider "github" {
-  owner = "my-github-organization" # or use `export GITHUB_OWNER="my-github-organization"`
-  token = "my-github-token"        # or use `export GITHUB_TOKEN="my-github-token"`
-}
-
 module "repo_mgmt_organization" {
   source = "../.."
+
+  # provider settings
+  github_owner = "my-github-organization" # or use `GITHUB_OWNER` environment variable.
+  github_token = "my-github-token"        # or use `GITHUB_TOKEN` environment variable.
 
   # change defaults (see: variables.tf)
   github_team_repository_default_permission = "push"
