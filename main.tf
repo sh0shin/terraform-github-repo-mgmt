@@ -75,7 +75,7 @@ resource "github_repository" "this" {
     content {
       source {
         branch = pages.key
-        path   = pages.value.path
+        path   = try(pages.value.path, var.github_repository_default_pages_path)
       }
       cname = try(pages.value.cname, var.github_repository_default_pages_cname)
     }

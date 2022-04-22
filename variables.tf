@@ -215,6 +215,13 @@ variable "github_repository_default_vulnerability_alerts" {
   default     = false
 }
 
+variable "github_repository_default_pages_path" {
+  description = "Default GitHub Pages path."
+  type        = string
+  default     = "/"
+  nullable    = false
+}
+
 variable "github_repository_default_pages_cname" {
   description = "Default GitHub Pages CNAME."
   type        = string
