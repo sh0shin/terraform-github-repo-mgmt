@@ -1,0 +1,9 @@
+---
+# vim: set ft=yaml :
+# https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
+
+default: true
+extends: null
+
+MD013:
+  line_length: 200
