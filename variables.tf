@@ -212,7 +212,7 @@ variable "github_repository_default_archive_on_destroy" {
 variable "github_repository_default_vulnerability_alerts" {
   description = "Default enable/disable security alerts for vulnerable dependencies."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "github_repository_default_pages_path" {
