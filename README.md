@@ -8,15 +8,15 @@ Terraform module which manages your GitHub user or organization repositories.
 
 The following requirements are needed by this module:
 
-- terraform (~> 1.1)
+- terraform (~> 1.1, < 1.3)
 
-- github (~> 4.0)
+- github (~> 4.0, < 5.0)
 
 ## Providers
 
 The following providers are used by this module:
 
-- github (~> 4.0)
+- github (~> 4.0, < 5.0)
 
 ## Resources
 
@@ -248,7 +248,7 @@ Description: Default enable/disable security alerts for vulnerable dependencies.
 
 Type: `bool`
 
-Default: `false`
+Default: `true`
 
 ### github_team
 
